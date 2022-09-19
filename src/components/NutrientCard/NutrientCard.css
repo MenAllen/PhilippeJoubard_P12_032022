@@ -1,0 +1,24 @@
+.nutrientCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 258px;
+  height: 124px;
+  border-radius: 5px;
+  background-color: #FBFBFB;
+}
+
+.nutrientCard div p {
+  color: #282D30;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 1rem;
+}
+
+.nutrientCard div span {
+  color: #7479BC;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 1rem;
+}

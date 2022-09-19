@@ -1,0 +1,35 @@
+.sidebarContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  background-color: #020203;
+	margin-left: 3rem;
+	width: 117px;
+	height: 900px;
+  position: relative;
+}
+
+.sidebarIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+	background-color: #020203;
+}
+
+.sidebarIcons img {
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+  border-radius: 6px;
+}
+
+.sidebarRights {
+  font-size: 0.75rem;
+  writing-mode:vertical-rl;
+  transform: rotate(180deg);
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  align-self: center;
+}
