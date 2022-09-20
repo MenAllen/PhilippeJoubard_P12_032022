@@ -33,3 +33,4 @@ export const USER_MAIN_DATA = [
 
 export const USER_ACTIVITY = [];
 export const USER_AVERAGE_SESSIONS = [];
+export const USER_PERFORMANCE = []

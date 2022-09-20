@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import UserBoard from "./pages/UserBoard";
 import Header from "./components/Header/Header";
-import SideBar from "./components/SideBar/SideBar";
+import Error from "./pages/Error";
 
 function App() {
 	return (
@@ -13,6 +13,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<Home />} />
 					<Route path="/user/:userId" element={<UserBoard />} />
+					<Route path="/*" element={<Error />} />
 				</Routes>
 			</Router>
 		</div>

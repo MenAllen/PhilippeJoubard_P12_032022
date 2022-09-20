@@ -9,6 +9,13 @@ const rotate = keyframes`
   }
 `;
 
+export const LoaderWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	padding-bottom: 400px;
+	padding-top: 60px;
+`;
+
 export const Loader = styled.div`
 	padding: 10px;
 	border: 6px solid black;
