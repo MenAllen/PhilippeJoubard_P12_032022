@@ -9,10 +9,9 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
  * 					error boolean d'indication d'erreur de lecture des données
  */
 export function useFetchData(id, dataType) {
-
 	console.log("useFetchData: ", dataType);
 
-	const mocked = false;
+	const mocked = true;
 	const server = "http://localhost:3000";
 
 	const [userData, setUserData] = useState({});
@@ -20,35 +19,37 @@ export function useFetchData(id, dataType) {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		console.log('useEffect called');
+		console.log("useEffect called");
 		if (mocked === true) {
-
 			const MOCK_BY_DATATYPE = {
 				user_main_data: USER_MAIN_DATA,
 				user_activity: USER_ACTIVITY,
-				user_sessions: USER_AVERAGE_SESSIONS,
+				user_average_sessions: USER_AVERAGE_SESSIONS,
 				user_performance: USER_PERFORMANCE,
-			};		
-	
-			const userDataMocked = MOCK_BY_DATATYPE[dataType];
-			const thisUserDataMocked = userDataMocked.find((element) => element.id.toString() === id);
+			};
 
-			console.log("userDataMocked: ", userDataMocked, thisUserDataMocked);
+			const dataMocked = MOCK_BY_DATATYPE[dataType];
+			let userDataMocked = {}; 
+			if (dataType === "user_main_data") {
+				userDataMocked = dataMocked.find((element) => element.id.toString() === id);
+			} else {
+				userDataMocked = dataMocked.find((element) => element.userId.toString() === id);
+			}
+			console.log("userDataMocked: ", dataMocked, userDataMocked);
 
-			setUserData(thisUserDataMocked);
+			setUserData(userDataMocked);
 			setLoading(false);
 		} else {
-
 			const URL_BY_DATATYPE = {
 				user_main_data: server + "/user/" + id,
 				user_activity: server + "/user/" + id + "/activity",
 				user_sessions: server + "/user/" + id + "/average-sessions",
-				user_performance: server + "/user/" + id + "/performance"
+				user_performance: server + "/user/" + id + "/performance",
 			};
 
 			let url = URL_BY_DATATYPE[dataType];
 			console.log(url);
-		
+
 			if (!url) return;
 
 			async function fetchData(url) {
@@ -74,4 +75,3 @@ export function useFetchData(id, dataType) {
 }
 
 export default useFetchData;
-

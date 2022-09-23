@@ -3,6 +3,9 @@ import styled from "styled-components";
 import SideBar from "../components/SideBar/SideBar";
 import Title from "../components/Title/Title";
 import Nutrients from "../components/Nutrients/Nutrients";
+import SessionsChart from "../components/SessionsChart/SessionsChart";
+import PerformanceChart from "../components/PerformanceChart/PerformanceChart";
+import ScoreChart from "../components/ScoreChart/ScoreChart";
 import { useParams } from "react-router-dom";
 
 const Main = styled.main`
@@ -11,13 +14,20 @@ const Main = styled.main`
 	height: 100%;
 `;
 
-const UserPerfContainer = styled.div`
+const UserContainer = styled.div`
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 	width: 100%;
 	height: 900px;
-  padding: 3rem;
+	padding: 3rem;
 `;
+
+const MultiChartContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+`;
+
 /**
  * 
  * @returns
@@ -26,14 +36,20 @@ const UserPerfContainer = styled.div`
  */
 function UserBoard() {
 	const { userId } = useParams();
+	console.log(userId);
 
 	return (
 		<Main>
 			<SideBar />
-			<UserPerfContainer>
+			<UserContainer>
 				<Title id={userId} />
-				<Nutrients id={userId} />
-			</UserPerfContainer>
+				<MultiChartContainer>
+					<SessionsChart id={userId} />
+					<PerformanceChart id={userId} />
+					<ScoreChart id={userId} />
+					<Nutrients id={userId} />
+				</MultiChartContainer>
+			</UserContainer>
 		</Main>
 	);
 }

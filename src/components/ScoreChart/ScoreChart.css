@@ -1,0 +1,36 @@
+.scoreChartContainer {
+  width: 30%;
+  height: 263px;
+  background-color:#FBFBFB;
+  border-radius: 5px;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.scoreChartTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #20253A;
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  width: 150px;
+  text-align: left;
+}
+
+.objectivContainer {
+  position: absolute;
+  top: 37%;
+  left: 37%;
+}
+
+.objectivContainer p {
+  margin:0;
+  font-size: 1rem;
+  color: #74798C;
+}
+
+.objectivContainer p strong {
+  font-size: 1.6rem;
+  color: #282D30;
+}
