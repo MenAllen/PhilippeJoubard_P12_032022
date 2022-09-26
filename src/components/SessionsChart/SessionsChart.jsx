@@ -1,11 +1,9 @@
 import React from "react";
-import useFetchData from "../../utils/api";
-import { LoaderWrapper, Loader } from "../../utils/Atoms";
 import propTypes from "prop-types";
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line, ResponsiveContainer } from "recharts";
 import "./SessionsChart.css";
 
-function SessionsChart({ id }) {
+function SessionsChart({ userData }) {
 	/**
 	 *
 	 * @param {number} day
@@ -43,17 +41,7 @@ function SessionsChart({ id }) {
 		return null;
 	}
 
-	const { userData, isLoading, error } = useFetchData(id, "user_average_sessions");
-
-	if (error) {
-		return <span>Oups il y a eu un problème</span>;
-	}
-
-	return isLoading ? (
-		<LoaderWrapper>
-			<Loader />
-		</LoaderWrapper>
-	) : (
+	return (
 		<div className="sessionsChartContainer">
 			<h2 className="sessionChartTitle">Durée moyenne des sessions</h2>
 
@@ -79,7 +67,7 @@ function SessionsChart({ id }) {
 }
 
 SessionsChart.propTypes = {
-	id: propTypes.number.isRequired,
+	userData: propTypes.object.isRequired,
 };
 
 export default SessionsChart;

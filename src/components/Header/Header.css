@@ -1,18 +1,19 @@
 header {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	height: 80px;
+	background-color: #020203;
+	margin: 0;
+	padding: 0 3.5rem;
+	height: 90px;
 }
 
 header nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #020203;
-	width: 90%;
-	padding: 0.5rem 3rem;
-	margin: 0 3rem;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 header a {
@@ -28,11 +29,10 @@ header nav a {
 	color: #ffffff;
 	font-size: 1.5rem;
 	font-weight: 500;
-	padding: 0 0 0 30px;
 }
 
 .logo {
 	width: 178px;
 	height: auto;
-	margin-left: -3rem;
+	margin-left: -2rem;
 }

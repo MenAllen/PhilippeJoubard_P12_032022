@@ -1,9 +1,9 @@
 .sessionsChartContainer {
-  width: 30%;
-  height: 263px;
+  width: 18.5vw;
+  height: 26vh;
   background-color:#FF0000;
   border-radius: 5px;
-  margin-right: 1rem;
+  margin-right: 0;
   position: relative;
 }
 

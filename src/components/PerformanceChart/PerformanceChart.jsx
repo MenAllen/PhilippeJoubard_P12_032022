@@ -1,11 +1,9 @@
 import React from "react";
-import useFetchData from "../../utils/api";
-import { LoaderWrapper, Loader } from "../../utils/Atoms";
 import propTypes from "prop-types";
 import { RadarChart, PolarAngleAxis, Radar, PolarRadiusAxis, PolarGrid, ResponsiveContainer } from "recharts";
 import "./PerformanceChart.css";
 
-function PerformanceChart({ id }) {
+function PerformanceChart({ userData }) {
 
   const formatXAxis = (tickItem) => {
     switch (tickItem) {
@@ -27,17 +25,7 @@ function PerformanceChart({ id }) {
     return reversedArray;
   }
 
-	const { userData, isLoading, error } = useFetchData(id, "user_performance");
-
-	if (error) {
-		return <span>Oups il y a eu un problème</span>;
-	}
-
-	return isLoading ? (
-		<LoaderWrapper>
-			<Loader />
-		</LoaderWrapper>
-	) : (
+	return (
 		<div className="PerformanceChartContainer">
 
 			<ResponsiveContainer width="98%" height="100%">
@@ -57,7 +45,7 @@ function PerformanceChart({ id }) {
 }
 
 PerformanceChart.propTypes = {
-	id: propTypes.number.isRequired,
+	userData: propTypes.object.isRequired,
 };
 
 export default PerformanceChart;

@@ -1,8 +1,7 @@
 .PerformanceChartContainer {
-  width: 30%;
-  height: 263px;
+  width: 18.5vw;
+  height: 26vh;
   background-color:#282D30;
   border-radius: 5px;
-  margin-right: 1rem;
   position: relative;
 }

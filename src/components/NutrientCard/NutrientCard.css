@@ -1,9 +1,8 @@
 .nutrientCard {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width: 258px;
+  width: 90%;
   height: 124px;
   border-radius: 5px;
   background-color: #FBFBFB;

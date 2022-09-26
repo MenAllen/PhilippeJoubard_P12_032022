@@ -1,11 +1,9 @@
 import React from "react";
-import useFetchData from "../../utils/api";
-import { LoaderWrapper, Loader } from "../../utils/Atoms";
 import propTypes from "prop-types";
 import { RadialBarChart, RadialBar, Legend, style, ResponsiveContainer, PolarAngleAxis } from "recharts";
 import "./ScoreChart.css";
 
-function ScoreChart({ id }) {
+function ScoreChart({ userData }) {
 
   function ObjectivPerCent() {
     return Math.round(userData.score * 100);
@@ -19,19 +17,7 @@ function ScoreChart({ id }) {
     return userData;
   }
 
-	const { userData, isLoading, error } = useFetchData(id, "user_main_data");
-
-  console.log("ScoreChart: ", userData);
-
-	if (error) {
-		return <span>Oups il y a eu un problème</span>;
-	}
-
-	return isLoading ? (
-		<LoaderWrapper>
-			<Loader />
-		</LoaderWrapper>
-	) : (
+	return (
 		<div className="scoreChartContainer">
       <h2 className="scoreChartTitle">Score</h2>
 			<ResponsiveContainer width="98%" height="100%">
@@ -48,7 +34,7 @@ function ScoreChart({ id }) {
 }
 
 ScoreChart.propTypes = {
-	id: propTypes.number.isRequired,
+	userData: propTypes.object.isRequired,
 };
 
 export default ScoreChart;

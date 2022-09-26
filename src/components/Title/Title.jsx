@@ -7,19 +7,9 @@ import propTypes from 'prop-types';
 import "./Title.css";
 
 
-function Title({ id }) {
-	
-	const { userData, isLoading, error } = useFetchData(id, "user_main_data");
+function Title({ userData }) {
 
-	if (error) {
-		return <span>Oups il y a eu un problème</span>;
-	}
-
-	return isLoading ? (
-			<LoaderWrapper>
-				<Loader />
-			</LoaderWrapper>
-	) : (
+	return (
 		<div className="titleContainer">
 			<h1>
 				Bonjour <span>{userData.userInfos.firstName}</span>
@@ -30,7 +20,7 @@ function Title({ id }) {
 }
 
 Title.propTypes={
-	id: propTypes.number.isRequired
+	userData: propTypes.object.isRequired
 }
 
 export default Title;
