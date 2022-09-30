@@ -5,7 +5,8 @@
   background-color: #020203;
 	margin: 0;
 	width: 117px;
-	height: 94vh;
+	height: 91vh;
+  min-height: 685px;
   z-index: 10;
   position: relative;
 }
@@ -25,12 +26,23 @@
   border-radius: 6px;
 }
 
+.sidebarIcons img:hover {
+  cursor: pointer;
+}
+
 .sidebarRights {
   font-size: 0.75rem;
   writing-mode:vertical-rl;
   transform: rotate(180deg);
   color: white;
   position: absolute;
-  bottom: 50px;
+  bottom: 25px;
   align-self: center;
+}
+
+/* =========================================================================================== */
+@media screen and (max-width: 1250px) {
+  .sidebarContainer {
+    height: 88vh;
+  }
 }

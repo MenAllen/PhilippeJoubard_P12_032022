@@ -3,10 +3,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 60px;
   width: 90%;
-  height: 15%;
-/*  border: 2px solid black; */
+  height: 18vh;
+  margin: 0 40px;
 }
 
 .titleContainer h1 {

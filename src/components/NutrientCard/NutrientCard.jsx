@@ -2,7 +2,7 @@ import caloIcon from "../../assets/calories-icon.svg";
 import proteinIcon from "../../assets/protein-icon.svg";
 import glucidIcon from "../../assets/carbs-icon.svg";
 import lipidIcon from "../../assets/fat-icon.svg";
-import propTypes from 'prop-types';
+import propTypes from "prop-types";
 import "./NutrientCard.css";
 
 const ICON_ARRAY = {
@@ -24,7 +24,6 @@ function formatNumber(num) {
 }
 
 function NutrientCard({ item, data }) {
-
 	return (
 		<div className="nutrientCard">
 			<img src={ICON_ARRAY[item]} width="60" height="60" alt="icone nutriment" />
@@ -41,9 +40,9 @@ function NutrientCard({ item, data }) {
 	);
 }
 
-NutrientCard.propTypes={
+NutrientCard.propTypes = {
 	item: propTypes.string.isRequired,
 	data: propTypes.number.isRequired,
-}
+};
 
 export default NutrientCard;

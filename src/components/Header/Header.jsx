@@ -10,9 +10,9 @@ function Header() {
 	return (
 		<header>
 			<nav>
-			<Link to="/">
-				<img className="logo" src={logo} alt="logo du site Spotsee" />
-			</Link>
+				<Link to="/">
+					<img className="logo" src={logo} alt="logo du site Spotsee" />
+				</Link>
 				<NavLink to="/">Accueil</NavLink>
 				<NavLink to="/">Profil</NavLink>
 				<NavLink to="/">Réglages</NavLink>

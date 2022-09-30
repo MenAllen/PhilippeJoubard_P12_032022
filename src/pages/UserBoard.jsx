@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useFetchData from "../utils/api";
+import Error from "./Error";
 import { LoaderWrapper, Loader } from "../utils/Atoms";
 import SideBar from "../components/SideBar/SideBar";
 import Title from "../components/Title/Title";
@@ -22,32 +23,31 @@ const UserContainer = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	width: 100%;
-	height: auto;
 	padding: 1rem;
 `;
 
-const MultiChartContainer = styled.div`
+const AllChartsContainer = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	width: 100%;
 	height: auto;
 `;
 
-const Bloc1Container = styled.div`
+const GraphicalsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 62vw;
-	margin: 1rem;
+	justify-content: space-around;
+	width: 58vw;
 `;
 
-const Bloc2Container = styled.div`
+const SquaresContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	height: auto;
-	margin: 1rem;
+	margin-top: 40px;
 `;
 
 /**
@@ -62,7 +62,7 @@ function UserBoard() {
 	const { userMainData, userActivityData, userSessionsData, userPerformanceData, isLoading, error } = useFetchData(userId);
 
 	if (error) {
-		return <span>Oups il y a eu un problème</span>;
+		return <Error />;
 	}
 
 	return isLoading ? (
@@ -74,17 +74,17 @@ function UserBoard() {
 			<SideBar />
 			<UserContainer>
 				<Title userData={userMainData} />
-				<MultiChartContainer>
-					<Bloc1Container>
+				<AllChartsContainer>
+					<GraphicalsContainer>
 						<ActivityChart userData={userActivityData} />
-						<Bloc2Container>
+						<SquaresContainer>
 							<SessionsChart userData={userSessionsData} />
 							<PerformanceChart userData={userPerformanceData} />
 							<ScoreChart userData={userMainData} />
-						</Bloc2Container>
-					</Bloc1Container>
+						</SquaresContainer>
+					</GraphicalsContainer>
 					<Nutrients userData={userMainData} />
-				</MultiChartContainer>
+				</AllChartsContainer>
 			</UserContainer>
 		</Main>
 	);

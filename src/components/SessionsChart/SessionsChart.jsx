@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line, ResponsiveContainer } from "recharts";
+import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, Tooltip, Legend, Line, Rectangle } from "recharts";
 import "./SessionsChart.css";
 
 function SessionsChart({ userData }) {
@@ -41,11 +41,15 @@ function SessionsChart({ userData }) {
 		return null;
 	}
 
+	function CustomizedCursor({ points }) {
+		return <Rectangle fill="black" opacity={0.1} x={points[1].x} width={500} height={300} />;
+	}
+
 	return (
 		<div className="sessionsChartContainer">
 			<h2 className="sessionChartTitle">Durée moyenne des sessions</h2>
 
-			<ResponsiveContainer width="98%" height="100%">
+			<ResponsiveContainer width="100%" height="100%">
 				<LineChart data={userData.sessions} margin={{ top: 40, right: 10, left: 10, bottom: 40 }}>
 					<CartesianGrid horizontal={false} vertical={false} />
 					<XAxis
@@ -59,7 +63,8 @@ function SessionsChart({ userData }) {
 						tickMargin={40}
 					/>
 					<Line type="natural" dataKey="sessionLength" stroke="#ffffff" dot={false} strokeWidth={2} />
-					<Tooltip content={<CustomizedTooltip />} cursor={false}/>
+					<Tooltip content={<CustomizedTooltip />} cursor={<CustomizedCursor />} />
+					onMouseMove={(e) => {}}
 				</LineChart>
 			</ResponsiveContainer>
 		</div>
