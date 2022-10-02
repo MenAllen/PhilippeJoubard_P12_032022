@@ -1,14 +1,20 @@
 import React from "react";
 import propTypes from "prop-types";
-import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, Tooltip, Legend, Line, Rectangle } from "recharts";
+import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, Tooltip, Line, Rectangle } from "recharts";
 import "./SessionsChart.css";
 
+/**
+ *  SessionChart is a React component in charge of displaying session average data for a user
+ *  It is based on lineChart from Recharts
+ * 
+ *  @prop {Object} userData contains an array of user session information:
+ * 			{	day: 1,
+ *				sessionLength: 30 }
+ *  @returns a div including the SessionChart based on lineChart from Recharts
+ */
 function SessionsChart({ userData }) {
-	/**
-	 *
-	 * @param {number} day
-	 * @returns
-	 */
+
+	/* Format the day date from number to string representig the first letter of the day */
 	const xAxisFormatter = (day) => {
 		switch (day) {
 			case 1:
@@ -30,6 +36,7 @@ function SessionsChart({ userData }) {
 		}
 	};
 
+	/* customize the tootip to cope with the FIGMA */
 	function CustomizedTooltip({ active, payload }) {
 		if (active && payload) {
 			return (
@@ -41,6 +48,7 @@ function SessionsChart({ userData }) {
 		return null;
 	}
 
+	/* Darken the right part of the chart when the cursor points to a value */
 	function CustomizedCursor({ points }) {
 		return <Rectangle fill="black" opacity={0.1} x={points[1].x} width={500} height={300} />;
 	}

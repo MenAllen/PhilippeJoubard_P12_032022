@@ -3,8 +3,9 @@ import logo from "../../logo.svg";
 import "./Header.css";
 
 /**
- *
- * @returns Affichage du header inluant logo et menu de navigation
+ * The Header function returns a header element with a nav element inside, which contains a link
+ * with the SportSee logo, and four navlink elements.
+ * @returns A React component returning the header HTML of the App
  */
 function Header() {
 	return (

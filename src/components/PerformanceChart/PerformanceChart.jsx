@@ -1,10 +1,21 @@
 import React from "react";
 import propTypes from "prop-types";
-import { RadarChart, PolarAngleAxis, Radar, PolarRadiusAxis, PolarGrid, ResponsiveContainer } from "recharts";
+import { RadarChart, PolarAngleAxis, Radar, PolarGrid, ResponsiveContainer } from "recharts";
 import "./PerformanceChart.css";
 
+/**
+ * PerformanceChart is a React component in charge of displaying the 6 user performances in a radar Chart:
+ * speed, intensity, strength, endurance, energy & cardio
+ *  
+ *  @prop {Object} userData containing data object, an array of 6 object:
+ *	 { value: 80,
+ *    	kind: 1 }
+ *  @returns a div including the 6 values in a radarChart
+ */
 function PerformanceChart({ userData }) {
-	const formatXAxis = (tickItem) => {
+
+   /* formatXAxis takes a number and returns a string to be displayed in the XAxis of the radar Chart */
+  const formatXAxis = (tickItem) => {
 		switch (tickItem) {
 			case 1:
 				return "Cardio";
@@ -23,7 +34,9 @@ function PerformanceChart({ userData }) {
 		}
 	};
 
-	function reverseArray(Array) {
+  /* Takes an array, returns a new array, with the same values in reverse order.
+   * This is done to cope with the Figma picture                                 */ 
+  function reverseArray(Array) {
 		const reversedArray = [];
 		for (let i = 0; i < Array.length; i++) {
 			reversedArray[5 - i] = Array[i];

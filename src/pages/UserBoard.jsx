@@ -12,6 +12,39 @@ import ScoreChart from "../components/ScoreChart/ScoreChart";
 import ActivityChart from "../components/ActivityChart/ActivityChart";
 import { useParams } from "react-router-dom";
 
+
+/* ============================= USERBOARD ARCITECTURE ============================= */
+/*   +----------------------------------------------------------------------------+  */
+/*   |    MAIN                                                                    |  */
+/*   | +---------+  +------------------------------------------------------------+|  */
+/*   | | SideBar |  |  UserContainer                                             ||  */
+/*   | |         |  | +--------------------------------------------------------+ ||  */
+/*   | |         |  | | Title                                                  | ||  */
+/*   | |         |  | |                                                        | ||  */
+/*   | |         |  | +--------------------------------------------------------+ ||  */
+/*   | |         |  | +--------------------------------------------------------+ ||  */
+/*   | |         |  | | AllChartsContainer                                     | ||  */
+/*   | |         |  | | +-----------------------------------------+ +-  -----+ | ||  */
+/*   | |         |  | | | GraphicalsContainer                     | |Nutri   | | ||  */
+/*   | |         |  | | |+---------------------------------------+| |ents    | | ||  */ 
+/*   | |         |  | | ||  ActivityChart                        || |        | | ||  */
+/*   | |         |  | | ||                                       || |        | | ||  */
+/*   | |         |  | | ||                                       || |        | | ||  */
+/*   | |         |  | | |+------------------------------- -------+| |        | | ||  */
+/*   | |         |  | | |+---------------------------------------+| |        | | ||  */
+/*   | |         |  | | ||  SquaresContainer                     || |        | | ||  */
+/*   | |         |  | | ||+-----------++-----------++-----------+|| |        | | ||  */
+/*   | |         |  | | ||| Session   ||Performan  || Score     ||| |        | | ||  */
+/*   | |         |  | | ||| Chart     ||Chart      || Chart     ||| |        | | ||  */
+/*   | |         |  | | |||           ||           ||           ||| |        | | ||  */
+/*   | |         |  | | ||+-----------++-----------++-----------+|| |        | | ||  */ 
+/*   | |         |  | | |+---------------------------------------+| |        | | ||  */
+/*   | |         |  | +-------------------------------------------+ +--------+ | ||  */
+/*   | |         |  +----------------------------------------------------------+ ||  */
+/*   | +---------+  +------------------------------------------------------------+|  */
+/*   +----------------------------------------------------------------------------+  */
+/* ================================================================================= */
+
 const Main = styled.main`
 	display: flex;
 	width: 100%;
@@ -51,20 +84,24 @@ const SquaresContainer = styled.div`
 `;
 
 /**
+ * UserBoard React component called to display user data.
  * 
- * @returns
- * 				<Nutrients id={userId} />
- 
+ * @returns {React.ReactElement} main HTML including all charts and data requested 
  */
 function UserBoard() {
+
+	/* userId is extracted from the url */
 	const { userId } = useParams();
 
+	/* customized hook is called to retrieve user data */
 	const { userMainData, userActivityData, userSessionsData, userPerformanceData, isLoading, error } = useFetchData(userId);
 
+	/* on error, display error panel */
 	if (error) {
 		return <Error />;
 	}
 
+	/* if data loading, display loader. If not, data is available to display full page */ 
 	return isLoading ? (
 		<LoaderWrapper>
 			<Loader />

@@ -3,6 +3,17 @@ import NutrientCard from "../NutrientCard/NutrientCard";
 import propTypes from "prop-types";
 import "./Nutrients.css";
 
+/**
+ *  NutrientCard is a React component in charge of displaying the 4 nutrients measurements of each user:
+ *  calories, proteins, carbohydrate & lipids
+ *  
+ *  @prop {Object} userData containing keyData object :
+ *		{ calorieCount: 1930,
+ *		proteinCount: 155,
+ *		carbohydrateCount: 290,
+ *		lipidCount: 50 }
+ *  @returns a div with 4 NutritienCard components
+ */
 function Nutrients({ userData }) {
 	return (
 		<div className="nutrientsContainer">

@@ -3,13 +3,23 @@ import propTypes from "prop-types";
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from "recharts";
 import "./ScoreChart.css";
 
+/**
+ * ScoreChart is a React component in charge of displaying the user performance score, in %,
+ *  in a radialBarChart.
+ *  
+ *  @prop {Number} userData containing score or todayScore value
+ *  @returns a div including the score in a radialBarChart
+ */
 function ScoreChart({ userData }) {
+
 	const style = { background: "fff", fill: "red" };
 
+  /* calculates the score in percentage */
 	function ObjectivPerCent() {
 		return Math.round(userData.score * 100);
 	}
 
+  /* assigns score value from score or todayScore */
 	function FormatDataScore() {
 		if (!userData.score) {
 			userData.score = userData.todayScore;

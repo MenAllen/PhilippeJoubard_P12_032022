@@ -3,10 +3,10 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 
 /**
  *
- * @param {number} id : The user Id to fetch. fetch is either from mocked data or from urls depending on 'mocked' value
- * @returns {object} userMainData, userActivityData, userSessionsData, userPerformanceData: data retrieved
- * 					{boolean} isLoading: indicates data is being retrieved
- * 					{boolean} error: indicates an error occured during retrieve
+ * @param {Number} id The user Id to fetch. fetch is either from mocked data or from urls depending on 'mocked' value
+ * @returns {Object} userMainData, userActivityData, userSessionsData, userPerformanceData: data retrieved
+ * 					{Boolean} isLoading indicates data is being retrieved
+ * 					{Boolean} error indicates an error occured during data retrieve
  */
 export function useFetchData(id) {
 	const mocked = false;

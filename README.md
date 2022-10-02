@@ -35,6 +35,11 @@ clone this repo https://github.com/MenAllen/PhilippeJoubard_P12_032022.git
 ### `npm start` to run the frontend
 A message will warn you that port 3000 is already in use and asks if you want to use another one. Then type the key 'y' to accept. A browser window then opens so that you can access the app
 
-## Configuration Mock ou API
-Par défaut les données sont chargées à partir du fichier /src/data/mockedData.js.
-Il est possible de modifier cette configuration pour récupérer les données via une API vers les endpoints donnés (fetch). Pour cela, il suffit de passer à false le boolean "mocked" dans la fonction useFetchData du fichier /src/utils/api.jsx
+## JS Doc
+Once the frontend is installed, jsdoc can be generated:
+### `npm run jsdoc` will generate the files
+### use index.html to display the result
+
+## MOCK / API Configuration switch
+A boolean named 'mocked' in /src/utils/api.jsx is set to true if mocked data is chosen.
+It will be changed to true if API data is chosen.

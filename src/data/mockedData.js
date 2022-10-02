@@ -1,3 +1,7 @@
+/**
+ * Mocked data extracted from Backend endpoint /user/id using POSTMAN. 
+ * 		USER_MAIN_DATA contains	user infos & key data (calories, proteins, carbohydrate & lipids)
+ */
 export const USER_MAIN_DATA = [
 	{
 		id: 12,
@@ -31,6 +35,10 @@ export const USER_MAIN_DATA = [
 	},
 ];
 
+/**
+ * Mocked data extracted from Backend endpoint /user/id/activity using POSTMAN.
+ * 		USER_ACTIVITY	contains user data per day in terms of weight & calories
+ */
 export const USER_ACTIVITY = [
 	{
 		userId: 12,
@@ -113,6 +121,11 @@ export const USER_ACTIVITY = [
 		],
 	},
 ];
+
+/**
+ * Mocked data extracted from Backend endpoint /user/id/average-sessions using POSTMAN.
+ * 		USER_AVERAGE_SESSIONS	contains data for	user sessions duration per day
+ */
 export const USER_AVERAGE_SESSIONS = [
 	{
 		userId: 12,
@@ -181,6 +194,11 @@ export const USER_AVERAGE_SESSIONS = [
 		],
 	},
 ];
+
+/**
+ * Mocked data extracted from Backend endpoint /user/id/performance using POSTMAN.
+ * 		USER_PERFORMANCE contains data for cardio, energy, endurance, strength, speed, intensity
+ */
 export const USER_PERFORMANCE = [
 	{
 		userId: 12,

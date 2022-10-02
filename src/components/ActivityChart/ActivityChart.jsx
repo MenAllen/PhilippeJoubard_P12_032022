@@ -3,11 +3,26 @@ import propTypes from "prop-types";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import "./ActivityChart.css";
 
+/**
+ *  ActivityChart is a React component in charge of displaying daily activity data for a user
+ *  It is based on barChart from Recharts
+ * 
+ *  @prop {Object} userData contains an array of user activity information:
+ * 			{	day: "2020-07-01",
+ *				kilogram: 80,
+ *				calories: 240, }
+ *  @returns a div including the ActivityChart component based on BarChart from Recharts
+ */
 function ActivityChart({ userData }) {
+
+	/* formatXAxis is used to adapt day format to the required format */
+	/* from string day format "YYYY-MM-DD" to day number (last D)     */
 	const formatXAxis = (day) => {
 		return Number(day.slice(8));
 	};
 
+	/* Function attached to Tooltip
+	 * When Tooltip active and payload available (managed by Recharts), display the information as required */
 	function ActivityTooltip({ active, payload }) {
 		if (active && payload) {
 			return (
