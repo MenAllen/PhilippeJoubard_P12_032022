@@ -5,30 +5,6 @@ import lipidIcon from "../../assets/fat-icon.svg";
 import propTypes from "prop-types";
 import "./NutrientCard.css";
 
-const ICON_ARRAY = {
-	Calories: caloIcon,
-	Proteines: proteinIcon,
-	Glucides: glucidIcon,
-	Lipides: lipidIcon,
-};
-
-const UNIT_NUTRIENT = {
-	Calories: "kCal",
-	Proteines: "g",
-	Glucides: "g",
-	Lipides: "g",
-};
-
-/**
- * It takes a number and returns a string with commas in the right places:
- *  zb 2500 -> 2,500
- * @prop {Number} num
- * @returns a string.
- */
-function formatNumber(num) {
-	return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-}
-
 /**
  * It's a function that takes in two props, item and data, and returns a div with an image, two
  * paragraph: the item concerned (proteins, ...) and the quantity (data).

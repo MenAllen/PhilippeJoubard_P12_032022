@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../data/mockedData";
 
+
+export const MOCKED_DATA = false;
+
 /**
  *
  * @param {Number} id The user Id to fetch. fetch is either from mocked data or from urls depending on 'mocked' value
@@ -9,7 +12,6 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
  * 					{Boolean} error indicates an error occured during data retrieve
  */
 export function useFetchData(id) {
-	const mocked = false;
 	const server = "http://localhost:3000";
 
 	const [userMainData, setUserMainData] = useState({});
@@ -30,7 +32,7 @@ export function useFetchData(id) {
 	}
 
 	useEffect(() => {
-		if (mocked === true) {
+		if (MOCKED_DATA === true) {
 			const mainDataMocked = USER_MAIN_DATA;
 			const activityDataMocked = USER_ACTIVITY;
 			const sessionsDataMocked = USER_AVERAGE_SESSIONS;
@@ -75,7 +77,7 @@ export function useFetchData(id) {
 				})
 				.finally(() => setLoading(false));
 		}
-	}, [id, mocked]);
+	}, [id]);
 
 	return { userMainData, userActivityData, userSessionsData, userPerformanceData, isLoading, error };
 }
