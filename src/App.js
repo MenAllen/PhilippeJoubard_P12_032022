@@ -5,11 +5,10 @@ import Header from "./components/Header/Header";
 import Error from "./pages/Error";
 import "./App.css";
 
-
 /**
- * The App function returns a div with a Router component containing the Header component and a Routes
- * component. This Routes component defines a Route component for each of the three pages in the app
- * @returns The return statement is returning a React element.
+ * The App function returns a div with a Router component, a Header component, and a Routes component.
+ * The Routes component has three Route components, each with a path and an element.
+ * @returns The return statement is returning a div, the JSX code that will be rendered to the DOM.
  */
 function App() {
 	return (

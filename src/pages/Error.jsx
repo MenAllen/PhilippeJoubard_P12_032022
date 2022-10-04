@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 /**
- * Error React component is called whenever :
- * 			The url is not expected or
- * 			The user id requested is not known
+ * Error React component is called whenever 
+ * 			the url is not expected or
+ * 			the user id requested is not known
  * 
- * @returns {React.ReactElement} div with error message and link to go back to Accueil 
+ * @returns {React.ReactElement} div with error message and link to Home page 
  */
 
 function Error() {

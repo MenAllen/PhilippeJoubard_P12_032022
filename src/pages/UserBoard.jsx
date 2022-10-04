@@ -84,17 +84,20 @@ const SquaresContainer = styled.div`
 `;
 
 /**
- * UserBoard React component called to display user data.
+ * UserBoard is a function in charge of displaying user data.
  * 
  * @returns {React.ReactElement} main HTML including all charts and data requested 
  */
+
+
+/* A function that is returning a React component. */
 function UserBoard() {
 
 	/* userId is extracted from the url */
 	const { userId } = useParams();
 
 	/* customized hook is called to retrieve user data */
-	const { userMainData, userActivityData, userSessionsData, userPerformanceData, isLoading, error } = useFetchData(userId);
+	const { userData, isLoading, error } = useFetchData(userId);
 
 	/* on error, display error panel */
 	if (error) {
@@ -110,17 +113,17 @@ function UserBoard() {
 		<Main>
 			<SideBar />
 			<UserContainer>
-				<Title userData={userMainData} />
+				<Title firstname={userData.getFirstName()} />
 				<AllChartsContainer>
 					<GraphicalsContainer>
-						<ActivityChart userData={userActivityData} />
+						<ActivityChart activityData={userData.getActivityData()} />
 						<SquaresContainer>
-							<SessionsChart userData={userSessionsData} />
-							<PerformanceChart userData={userPerformanceData} />
-							<ScoreChart userData={userMainData} />
+							<SessionsChart sessionsData={userData.getSessionsData()} />
+							<PerformanceChart performanceData={userData.getPerformanceData()} />
+							<ScoreChart scoreData={userData.getScoreData()} />
 						</SquaresContainer>
 					</GraphicalsContainer>
-					<Nutrients userData={userMainData} />
+					<Nutrients nutrientsData={userData.getNutrientData()} />
 				</AllChartsContainer>
 			</UserContainer>
 		</Main>

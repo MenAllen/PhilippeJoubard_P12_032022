@@ -46,11 +46,9 @@ const Button = styled.button`
 `;
 
 /**
- * Home React component called on startup :
- * 			Display the link for each user
- * 			Display mocked data status
- *
- * @returns {React.ReactElement} paragraph with welcome message and list of users
+ * Home is a function that returns a React Fragment that contains a Welcome, a Paragraph, a Link, a
+ * Button, and a StatusMock.
+ * @returns A React Fragment. Welcome message and links for list of user.
  */
 function Home() {
 	return (

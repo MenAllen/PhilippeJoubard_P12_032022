@@ -2,7 +2,7 @@ import { MOCKED_DATA } from "../../utils/api";
 import "./StatusMock.css";
 
 /**
- * It's a function that reads a global variable called MOCKED_DATA to inform the user of the data source: API or mocked Data.
+ * A function that reads a global variable called MOCKED_DATA to inform the user of the data source: API or mocked Data.
  * 
  * @returns A div with a text message.
  */

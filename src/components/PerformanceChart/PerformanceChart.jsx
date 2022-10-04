@@ -7,12 +7,12 @@ import "./PerformanceChart.css";
  * PerformanceChart is a React component in charge of displaying the 6 user performances in a radar Chart:
  * speed, intensity, strength, endurance, energy & cardio
  *  
- *  @prop {Object} userData containing data object, an array of 6 object:
+ *  @prop {Array} performanceData is an array of 6 objects. Example:
  *	 { value: 80,
  *    	kind: 1 }
  *  @returns a div including the 6 values in a radarChart
  */
-function PerformanceChart({ userData }) {
+function PerformanceChart({ performanceData }) {
 
    /* formatXAxis takes a number and returns a string to be displayed in the XAxis of the radar Chart */
   const formatXAxis = (tickItem) => {
@@ -47,7 +47,7 @@ function PerformanceChart({ userData }) {
 	return (
 		<div className="PerformanceChartContainer">
 			<ResponsiveContainer width="100%" height="100%">
-				<RadarChart cx="50%" cy="50%" innerRadius="10%" outerRadius={window.innerWidth > 1340 ? "70%" : "55%"} data={reverseArray(userData.data)}>
+				<RadarChart cx="50%" cy="50%" innerRadius="10%" outerRadius={window.innerWidth > 1340 ? "70%" : "55%"} data={reverseArray(performanceData)}>
 					<PolarGrid radialLines={false} />
 					<PolarAngleAxis dataKey="kind" tickLine={false} tick={{ fontSize: 12, fontWeight: 500 }} stroke={"#ffffff"} tickFormatter={formatXAxis} />
 					<Radar name={"User"} dataKey="value" fill="#FF0101" fillOpacity={0.7} />
@@ -58,7 +58,7 @@ function PerformanceChart({ userData }) {
 }
 
 PerformanceChart.propTypes = {
-	userData: propTypes.object.isRequired,
+	performanceData: propTypes.array.isRequired,
 };
 
 export default PerformanceChart;

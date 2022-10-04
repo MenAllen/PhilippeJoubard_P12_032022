@@ -4,17 +4,16 @@ import propTypes from "prop-types";
 import "./Title.css";
 
 /**
- * Title takes a prop called userData, and returns a div to display requested text and icon. 
- * The h1 tag has a span with the user's first name. 
- * The p tag has a clap icon.
- * 
- * @returns A React component displaying the requested message
+ * This function is a React component that takes a firstname prop and returns a div with a h1 and a p
+ * element.
+ * @returns A React component.
  */
-function Title({ userData }) {
+function Title({ firstname }) {
+
 	return (
 		<div className="titleContainer">
 			<h1>
-				Bonjour <span>{userData.userInfos.firstName}</span>
+				Bonjour <span>{firstname}</span>
 			</h1>
 			<p>
 				Félicitation ! vous avez explosé vos objectifs hier <img src={iconclap} className="iconClap" alt="bravo" />
@@ -24,7 +23,7 @@ function Title({ userData }) {
 }
 
 Title.propTypes = {
-	userData: propTypes.object.isRequired,
+	firstname: propTypes.string.isRequired,
 };
 
 export default Title;

@@ -7,12 +7,12 @@ import "./SessionsChart.css";
  *  SessionChart is a React component in charge of displaying session average data for a user
  *  It is based on lineChart from Recharts
  * 
- *  @prop {Object} userData contains an array of user session information:
+ *  @prop {Array} sessionsData contains an array of user session information. Example:
  * 			{	day: 1,
  *				sessionLength: 30 }
  *  @returns a div including the SessionChart based on lineChart from Recharts
  */
-function SessionsChart({ userData }) {
+function SessionsChart({ sessionsData }) {
 
 	/* Format the day date from number to string representig the first letter of the day */
 	const xAxisFormatter = (day) => {
@@ -58,7 +58,7 @@ function SessionsChart({ userData }) {
 			<h2 className="sessionChartTitle">Durée moyenne des sessions</h2>
 
 			<ResponsiveContainer width="100%" height="100%">
-				<LineChart data={userData.sessions} margin={{ top: 40, right: 10, left: 10, bottom: 40 }}>
+				<LineChart data={sessionsData} margin={{ top: 40, right: 10, left: 10, bottom: 40 }}>
 					<CartesianGrid horizontal={false} vertical={false} />
 					<XAxis
 						dataKey="day"
@@ -80,7 +80,7 @@ function SessionsChart({ userData }) {
 }
 
 SessionsChart.propTypes = {
-	userData: propTypes.object.isRequired,
+	sessionsData: propTypes.array.isRequired,
 };
 
 export default SessionsChart;

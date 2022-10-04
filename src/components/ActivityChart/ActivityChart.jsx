@@ -4,16 +4,16 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import "./ActivityChart.css";
 
 /**
- *  ActivityChart is a React component in charge of displaying daily activity data for a user
+ *  ActivityChart is a React component in charge of displaying daily activity data for a user.
  *  It is based on barChart from Recharts
  * 
- *  @prop {Object} userData contains an array of user activity information:
+ *  @prop {Array} activityData an array of objects containing user activity information. Example:
  * 			{	day: "2020-07-01",
  *				kilogram: 80,
  *				calories: 240, }
  *  @returns a div including the ActivityChart component based on BarChart from Recharts
  */
-function ActivityChart({ userData }) {
+function ActivityChart({ activityData }) {
 
 	/* formatXAxis is used to adapt day format to the required format */
 	/* from string day format "YYYY-MM-DD" to day number (last D)     */
@@ -40,7 +40,7 @@ function ActivityChart({ userData }) {
 			<h2 className="activityChartTitle">Activité quotidienne</h2>
 			<ResponsiveContainer width="100%" height="100%">
 				<BarChart
-					data={userData.sessions}
+					data={activityData}
 					margin={{
 						top: 10,
 						right: 5,
@@ -48,7 +48,7 @@ function ActivityChart({ userData }) {
 						bottom: 10,
 					}}
 					barGap={6}>
-					<CartesianGrid vertical={false} strokeDasharray="3 3" horizontalPoints={[165, 75]} />
+					<CartesianGrid vertical={false} strokeDasharray="3 3" horizontalPoints={[175, 70]} />
 					<XAxis dataKey="day" tickMargin="20" tickSize="0" tickFormatter={formatXAxis} />
 					<YAxis datakey="kilogram" yAxisId="right" orientation="right" type="number" axisLine={false} domain={["dataMin-1", "dataMax"]} tickCount="3" tickSize="0" tickMargin="30" />
 					<YAxis hide="true" datakey="calories" yAxisId="left" />
@@ -63,7 +63,7 @@ function ActivityChart({ userData }) {
 }
 
 ActivityChart.propTypes = {
-	userData: propTypes.object.isRequired,
+	activityData: propTypes.array.isRequired,
 };
 
 export default ActivityChart;

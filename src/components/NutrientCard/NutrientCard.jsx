@@ -6,7 +6,7 @@ import propTypes from "prop-types";
 import "./NutrientCard.css";
 
 /**
- * It's a function that takes in two props, item and data, and returns a div with an image, two
+ * A function that takes in two props, item and data, and returns a div with an image, two
  * paragraph: the item concerned (proteins, ...) and the quantity (data).
  * 
  * @prop {String} item chemical component

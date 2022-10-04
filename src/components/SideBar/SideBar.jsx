@@ -8,7 +8,7 @@ import "./SideBar.css";
  * The SideBar function returns a div with the className of sidebarContainer, which contains two divs,
  * one with the className of sidebarIcons, which contains four images, and one with the className of
  * sidebarRights, which contains the text 'Copyright, SportSee 2020'.
- * @returns The SideBar component is being returned.
+ * @returns The aside element representing the SideBar component.
  */
 function SideBar() {
 	return (
