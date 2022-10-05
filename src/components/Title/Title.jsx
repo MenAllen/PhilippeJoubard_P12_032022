@@ -9,7 +9,6 @@ import "./Title.css";
  * @returns A React component.
  */
 function Title({ firstname }) {
-
 	return (
 		<div className="titleContainer">
 			<h1>

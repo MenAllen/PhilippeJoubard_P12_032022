@@ -12,7 +12,6 @@ import ScoreChart from "../components/ScoreChart/ScoreChart";
 import ActivityChart from "../components/ActivityChart/ActivityChart";
 import { useParams } from "react-router-dom";
 
-
 /* ============================= USERBOARD ARCITECTURE ============================= */
 /*   +----------------------------------------------------------------------------+  */
 /*   |    MAIN                                                                    |  */
@@ -26,7 +25,7 @@ import { useParams } from "react-router-dom";
 /*   | |         |  | | AllChartsContainer                                     | ||  */
 /*   | |         |  | | +-----------------------------------------+ +-  -----+ | ||  */
 /*   | |         |  | | | GraphicalsContainer                     | |Nutri   | | ||  */
-/*   | |         |  | | |+---------------------------------------+| |ents    | | ||  */ 
+/*   | |         |  | | |+---------------------------------------+| |ents    | | ||  */
 /*   | |         |  | | ||  ActivityChart                        || |        | | ||  */
 /*   | |         |  | | ||                                       || |        | | ||  */
 /*   | |         |  | | ||                                       || |        | | ||  */
@@ -37,21 +36,21 @@ import { useParams } from "react-router-dom";
 /*   | |         |  | | ||| Session   ||Performan  || Score     ||| |        | | ||  */
 /*   | |         |  | | ||| Chart     ||Chart      || Chart     ||| |        | | ||  */
 /*   | |         |  | | |||           ||           ||           ||| |        | | ||  */
-/*   | |         |  | | ||+-----------++-----------++-----------+|| |        | | ||  */ 
+/*   | |         |  | | ||+-----------++-----------++-----------+|| |        | | ||  */
 /*   | |         |  | | |+---------------------------------------+| |        | | ||  */
 /*   | |         |  | +-------------------------------------------+ +--------+ | ||  */
 /*   | |         |  +----------------------------------------------------------+ ||  */
 /*   | +---------+  +------------------------------------------------------------+|  */
 /*   +----------------------------------------------------------------------------+  */
 /* ================================================================================= */
-
+/* styled components declaration */
 const Main = styled.main`
 	display: flex;
 	width: 100%;
 	height: auto;
 `;
 
-const UserContainer = styled.div`
+const UserContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -84,15 +83,10 @@ const SquaresContainer = styled.div`
 `;
 
 /**
- * UserBoard is a function in charge of displaying user data.
- * 
- * @returns {React.ReactElement} main HTML including all charts and data requested 
+ * UserBoard is a function that returns a React Fragment that contains all the charts to be displayed from user data.
+ * @returns A React Fragment. Main with aside and section containing all charts.
  */
-
-
-/* A function that is returning a React component. */
 function UserBoard() {
-
 	/* userId is extracted from the url */
 	const { userId } = useParams();
 
@@ -104,7 +98,7 @@ function UserBoard() {
 		return <Error />;
 	}
 
-	/* if data loading, display loader. If not, data is available to display full page */ 
+	/* if data loading, display loader. If not, data is available to display full page */
 	return isLoading ? (
 		<LoaderWrapper>
 			<Loader />

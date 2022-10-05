@@ -6,14 +6,13 @@ import "./SessionsChart.css";
 /**
  *  SessionChart is a React component in charge of displaying session average data for a user
  *  It is based on lineChart from Recharts
- * 
+ *
  *  @prop {Array} sessionsData contains an array of user session information. Example:
  * 			{	day: 1,
  *				sessionLength: 30 }
  *  @returns a div including the SessionChart based on lineChart from Recharts
  */
 function SessionsChart({ sessionsData }) {
-
 	/* Format the day date from number to string representig the first letter of the day */
 	const xAxisFormatter = (day) => {
 		switch (day) {

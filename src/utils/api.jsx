@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import User from "../models/UserClass"
+import User from "../models/UserClass";
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../data/mockedData";
 
 /* A constant that is used to determine whether to use mocked data or not. */
@@ -8,7 +8,7 @@ export const MOCKED_DATA = false;
 /**
  * It fetches data from a server and returns an object with the fetched data, a boolean for loading
  * state and a boolean for error state.
- * @param {Number} id The user Id to fetch. fetch is either from mocked data or from urls depending on 'mocked' value
+ * @param {Number} id The user Id to fetch. fetch is either from mocked data or from urls depending on MOCKED_DATA value
  * @returns {Object}  An object with 3 properties: userData, isLoading, error.
  * 					userData includes the necessaru data to display charts
  * 					isLoading (Boolean) indicates fetch is in progress or complete
@@ -46,10 +46,9 @@ export function useFetchData(id) {
 			if (!userMainDataMocked || !userMainDataMocked || !userMainDataMocked || !userMainDataMocked) {
 				setError(true);
 			} else {
-				setUserData( new User (userMainDataMocked, userActivityDataMocked, userSessionsDataMocked, userPerformanceDataMocked ) );
+				setUserData(new User(userMainDataMocked, userActivityDataMocked, userSessionsDataMocked, userPerformanceDataMocked));
 				setLoading(false);
 			}
-
 		} else {
 			const urlMainData = server + "/user/" + id;
 			const urlActivityData = server + "/user/" + id + "/activity";
@@ -60,7 +59,7 @@ export function useFetchData(id) {
 				.then((res) => Promise.all(res.map((r) => r.json())))
 				.then((mainData) => {
 					if (isValidData(mainData)) {
-						setUserData( new User(mainData[0].data, mainData[1].data, mainData[2].data, mainData[3].data) );
+						setUserData(new User(mainData[0].data, mainData[1].data, mainData[2].data, mainData[3].data));
 					} else {
 						setError(true);
 					}

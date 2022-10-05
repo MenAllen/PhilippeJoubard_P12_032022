@@ -38,11 +38,7 @@ to install the frontend
 to run the frontend. A message will warn you that port 3000 is already in use and asks if you want to use another one. Then type the key 'y' to accept. A browser window then opens so that you can access the app
 
 ## JS Doc
-Once the frontend is installed, jsdoc can be generated:
-### `npm run jsdoc` 
-will generate the files in jsdoc directory
-### use index.html
-It will display the result
+JSDoc is available in jsdoc directory. Launch index.html (located in jsdoc directory) to vizualize the code documentation.
 
 ## MOCK / API Configuration switch
-A boolean named 'MOCKED_DATA' is defined in /src/utils/api.jsx. If set to true, mocked data is chosen, if set to false, API data is chosen. Note the current value is displayed in Home page.
+A boolean named 'MOCKED_DATA' is defined in /src/utils/api.jsx. If set to true, mocked data is chosen, if set to false, API data is chosen. Note the current value is displayed in Home page, bottom right of screen.

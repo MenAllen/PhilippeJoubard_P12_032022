@@ -1,5 +1,5 @@
 /**
- * Mocked data extracted from Backend endpoint /user/id using POSTMAN. 
+ * Mocked data extracted from Backend endpoint /user/id using POSTMAN.
  * 		USER_MAIN_DATA contains	user infos & key data (calories, proteins, carbohydrate & lipids)
  */
 export const USER_MAIN_DATA = [

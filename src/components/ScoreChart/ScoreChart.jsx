@@ -6,16 +6,15 @@ import "./ScoreChart.css";
 /**
  * ScoreChart is a React component in charge of displaying the user performance score, in %,
  *  in a radialBarChart.
- *  
+ *
  *  @prop {Number} scoreData containing score or todayScore value
  *  @returns a div including the score in a radialBarChart
  */
 function ScoreChart({ scoreData }) {
-
 	const style = { background: "fff", fill: "red" };
 	const dataFormatted = [{ name: "a", score: scoreData }];
 
-  /* calculates the score in percentage */
+	/* calculates the score in percentage */
 	function ObjectivPerCent() {
 		return Math.round(scoreData * 100);
 	}

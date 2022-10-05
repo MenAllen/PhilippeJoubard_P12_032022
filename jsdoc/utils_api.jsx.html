@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/api.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/api.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from "react";
+import User from "../models/UserClass";
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../data/mockedData";
+
+/* A constant that is used to determine whether to use mocked data or not. */
+export const MOCKED_DATA = false;
+
+/**
+ * It fetches data from a server and returns an object with the fetched data, a boolean for loading
+ * state and a boolean for error state.
+ * @param {Number} id The user Id to fetch. fetch is either from mocked data or from urls depending on MOCKED_DATA value
+ * @returns {Object}  An object with 3 properties: userData, isLoading, error.
+ * 					userData includes the necessaru data to display charts
+ * 					isLoading (Boolean) indicates fetch is in progress or complete
+ * 					error (Boolean) indicates an error
+ */
+export function useFetchData(id) {
+	const server = "http://localhost:3000";
+
+	const [userData, setUserData] = useState({});
+	const [isLoading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
+
+	function isValidData(userData) {
+		if (!userData[0].data || !userData[1].data || !userData[2].data || !userData[3].data) {
+			return false;
+		}
+		if (userData[0] === "can not get user" || userData[1] === "can not get user" || userData[2] === "can not get user" || userData[3] === "can not get user") {
+			return false;
+		}
+		return true;
+	}
+
+	useEffect(() => {
+		if (MOCKED_DATA === true) {
+			const mainDataMocked = USER_MAIN_DATA;
+			const activityDataMocked = USER_ACTIVITY;
+			const sessionsDataMocked = USER_AVERAGE_SESSIONS;
+			const performanceDataMocked = USER_PERFORMANCE;
+
+			const userMainDataMocked = mainDataMocked.find((element) => element.id.toString() === id);
+			const userActivityDataMocked = activityDataMocked.find((element) => element.userId.toString() === id);
+			const userSessionsDataMocked = sessionsDataMocked.find((element) => element.userId.toString() === id);
+			const userPerformanceDataMocked = performanceDataMocked.find((element) => element.userId.toString() === id);
+
+			if (!userMainDataMocked || !userMainDataMocked || !userMainDataMocked || !userMainDataMocked) {
+				setError(true);
+			} else {
+				setUserData(new User(userMainDataMocked, userActivityDataMocked, userSessionsDataMocked, userPerformanceDataMocked));
+				setLoading(false);
+			}
+		} else {
+			const urlMainData = server + "/user/" + id;
+			const urlActivityData = server + "/user/" + id + "/activity";
+			const urlSessionsData = server + "/user/" + id + "/average-sessions";
+			const urlPerformanceData = server + "/user/" + id + "/performance";
+
+			Promise.all([fetch(urlMainData), fetch(urlActivityData), fetch(urlSessionsData), fetch(urlPerformanceData)])
+				.then((res) => Promise.all(res.map((r) => r.json())))
+				.then((mainData) => {
+					if (isValidData(mainData)) {
+						setUserData(new User(mainData[0].data, mainData[1].data, mainData[2].data, mainData[3].data));
+					} else {
+						setError(true);
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+					setError(true);
+				})
+				.finally(() => setLoading(false));
+		}
+	}, [id]);
+
+	return { userData, isLoading, error };
+}
+
+export default useFetchData;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ActivityChart">ActivityChart</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NutrientCard">NutrientCard</a></li><li><a href="global.html#Nutrients">Nutrients</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SessionsChart">SessionsChart</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#StatusMock">StatusMock</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#useFetchData">useFetchData</a></li><li><a href="global.html#USER_ACTIVITY">USER_ACTIVITY</a></li><li><a href="global.html#USER_AVERAGE_SESSIONS">USER_AVERAGE_SESSIONS</a></li><li><a href="global.html#USER_MAIN_DATA">USER_MAIN_DATA</a></li><li><a href="global.html#USER_PERFORMANCE">USER_PERFORMANCE</a></li><li><a href="global.html#UserBoard">UserBoard</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Oct 05 2022 16:12:01 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

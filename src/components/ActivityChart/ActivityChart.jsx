@@ -6,7 +6,7 @@ import "./ActivityChart.css";
 /**
  *  ActivityChart is a React component in charge of displaying daily activity data for a user.
  *  It is based on barChart from Recharts
- * 
+ *
  *  @prop {Array} activityData an array of objects containing user activity information. Example:
  * 			{	day: "2020-07-01",
  *				kilogram: 80,
@@ -14,7 +14,6 @@ import "./ActivityChart.css";
  *  @returns a div including the ActivityChart component based on BarChart from Recharts
  */
 function ActivityChart({ activityData }) {
-
 	/* formatXAxis is used to adapt day format to the required format */
 	/* from string day format "YYYY-MM-DD" to day number (last D)     */
 	const formatXAxis = (day) => {
@@ -48,7 +47,7 @@ function ActivityChart({ activityData }) {
 						bottom: 10,
 					}}
 					barGap={6}>
-					<CartesianGrid vertical={false} strokeDasharray="3 3" horizontalPoints={[175, 70]} />
+					<CartesianGrid vertical={false} strokeDasharray="3 3" />
 					<XAxis dataKey="day" tickMargin="20" tickSize="0" tickFormatter={formatXAxis} />
 					<YAxis datakey="kilogram" yAxisId="right" orientation="right" type="number" axisLine={false} domain={["dataMin-1", "dataMax"]} tickCount="3" tickSize="0" tickMargin="30" />
 					<YAxis hide="true" datakey="calories" yAxisId="left" />

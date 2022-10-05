@@ -4,9 +4,9 @@ import propTypes from "prop-types";
 import "./Nutrients.css";
 
 /**
- * Nutrients is a React component in charge of taking in a prop called nutrientsData and 
+ * Nutrients is a React component in charge of taking in a prop called nutrientsData and
  * rendering 4 other components called NutrientCard.
- *  
+ *
  *  @prop {Object} nutrientsData contains an object. example :
  *		{ calorieCount: 1930,
  *		proteinCount: 155,

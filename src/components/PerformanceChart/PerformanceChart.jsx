@@ -6,16 +6,15 @@ import "./PerformanceChart.css";
 /**
  * PerformanceChart is a React component in charge of displaying the 6 user performances in a radar Chart:
  * speed, intensity, strength, endurance, energy & cardio
- *  
+ *
  *  @prop {Array} performanceData is an array of 6 objects. Example:
  *	 { value: 80,
  *    	kind: 1 }
  *  @returns a div including the 6 values in a radarChart
  */
 function PerformanceChart({ performanceData }) {
-
-   /* formatXAxis takes a number and returns a string to be displayed in the XAxis of the radar Chart */
-  const formatXAxis = (tickItem) => {
+	/* formatXAxis takes a number and returns a string to be displayed in the XAxis of the radar Chart */
+	const formatXAxis = (tickItem) => {
 		switch (tickItem) {
 			case 1:
 				return "Cardio";
@@ -34,9 +33,9 @@ function PerformanceChart({ performanceData }) {
 		}
 	};
 
-  /* Takes an array, returns a new array, with the same values in reverse order.
-   * This is done to cope with the Figma picture                                 */ 
-  function reverseArray(Array) {
+	/* Takes an array, returns a new array, with the same values in reverse order.
+	 * This is done to cope with the Figma picture                                 */
+	function reverseArray(Array) {
 		const reversedArray = [];
 		for (let i = 0; i < Array.length; i++) {
 			reversedArray[5 - i] = Array[i];
