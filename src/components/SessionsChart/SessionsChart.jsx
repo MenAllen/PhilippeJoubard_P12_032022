@@ -1,6 +1,14 @@
 import React from "react";
 import propTypes from "prop-types";
-import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, Tooltip, Line, Rectangle } from "recharts";
+import {
+	ResponsiveContainer,
+	LineChart,
+	CartesianGrid,
+	XAxis,
+	Tooltip,
+	Line,
+	Rectangle,
+} from "recharts";
 import "./SessionsChart.css";
 
 /**
@@ -69,7 +77,13 @@ function SessionsChart({ sessionsData }) {
 						stroke="rgba(255, 255, 255, 0.8)"
 						tickMargin={40}
 					/>
-					<Line type="natural" dataKey="sessionLength" stroke="#ffffff" dot={false} strokeWidth={2} />
+					<Line
+						type="natural"
+						dataKey="sessionLength"
+						stroke="#ffffff"
+						dot={false}
+						strokeWidth={2}
+					/>
 					<Tooltip content={<CustomizedTooltip />} cursor={<CustomizedCursor />} />
 					onMouseMove={(e) => {}}
 				</LineChart>

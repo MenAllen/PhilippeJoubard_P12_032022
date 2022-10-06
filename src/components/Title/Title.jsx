@@ -15,7 +15,8 @@ function Title({ firstname }) {
 				Bonjour <span>{firstname}</span>
 			</h1>
 			<p>
-				Félicitation ! vous avez explosé vos objectifs hier <img src={iconclap} className="iconClap" alt="bravo" />
+				Félicitation ! vous avez explosé vos objectifs hier{" "}
+				<img src={iconclap} className="iconClap" alt="bravo" />
 			</p>
 		</div>
 	);

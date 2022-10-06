@@ -46,9 +46,20 @@ function PerformanceChart({ performanceData }) {
 	return (
 		<div className="PerformanceChartContainer">
 			<ResponsiveContainer width="100%" height="100%">
-				<RadarChart cx="50%" cy="50%" innerRadius="10%" outerRadius={window.innerWidth > 1340 ? "70%" : "55%"} data={reverseArray(performanceData)}>
+				<RadarChart
+					cx="50%"
+					cy="50%"
+					innerRadius="10%"
+					outerRadius={window.innerWidth > 1340 ? "70%" : "55%"}
+					data={reverseArray(performanceData)}>
 					<PolarGrid radialLines={false} />
-					<PolarAngleAxis dataKey="kind" tickLine={false} tick={{ fontSize: 12, fontWeight: 500 }} stroke={"#ffffff"} tickFormatter={formatXAxis} />
+					<PolarAngleAxis
+						dataKey="kind"
+						tickLine={false}
+						tick={{ fontSize: 12, fontWeight: 500 }}
+						stroke={"#ffffff"}
+						tickFormatter={formatXAxis}
+					/>
 					<Radar name={"User"} dataKey="value" fill="#FF0101" fillOpacity={0.7} />
 				</RadarChart>
 			</ResponsiveContainer>
