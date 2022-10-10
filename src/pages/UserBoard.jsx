@@ -45,7 +45,6 @@ import { useParams } from "react-router-dom";
 /* ================================================================================= */
 /* styled components declaration */
 const Main = styled.main`
-margin-left: 117px;
 	display: flex;
 	height: auto;
 `;
@@ -112,9 +111,9 @@ function UserBoard() {
 		<LoaderWrapper>
 			<Loader />
 		</LoaderWrapper>
-	) : (<>
-		<SideBar />
+	) : (	
 		<Main>
+		<SideBar />
 			<UserContainer>
 				<Title firstname={userData.getFirstName()} />
 				<AllChartsContainer>
@@ -129,7 +128,7 @@ function UserBoard() {
 					<Nutrients nutrientsData={userData.getNutrientData()} />
 				</AllChartsContainer>
 			</UserContainer>
-		</Main></>
+		</Main>
 	);
 }
 

@@ -5,10 +5,9 @@
 	background-color: #020203;
 	margin: 0;
 	width: 117px;
-	height: 100%;
+	height: 91vh;
 	min-height: 685px;
 	z-index: 10;
-	position: fixed;
 }
 
 .sidebarIcons {
@@ -36,8 +35,7 @@
 	transform: rotate(180deg);
 	color: white;
 	position: absolute;
-/*	bottom: 25px;*/
-	top: 75%;
+	bottom: 25px;
 	align-self: center;
 }
 
