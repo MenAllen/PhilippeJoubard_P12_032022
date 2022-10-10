@@ -45,32 +45,39 @@ import { useParams } from "react-router-dom";
 /* ================================================================================= */
 /* styled components declaration */
 const Main = styled.main`
+margin-left: 117px;
 	display: flex;
-	width: 100%;
 	height: auto;
 `;
 
 const UserContainer = styled.section`
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
-	padding: 1rem;
+	padding: 2rem 5rem;
+	@media screen and (max-width: 1370px) {
+		padding: 2rem 2rem;
+	}
 `;
 
 const AllChartsContainer = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
 	height: auto;
+	margin-bottom: 40px;
+	@media screen and (max-width: 1270px) {
+		margin-bottom: 0px;
+	}
 `;
 
 const GraphicalsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	width: 58vw;
+
 `;
 
 const SquaresContainer = styled.div`
@@ -78,6 +85,8 @@ const SquaresContainer = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
+	max-width: 835px;
 	height: auto;
 	margin-top: 40px;
 `;
@@ -103,9 +112,9 @@ function UserBoard() {
 		<LoaderWrapper>
 			<Loader />
 		</LoaderWrapper>
-	) : (
+	) : (<>
+		<SideBar />
 		<Main>
-			<SideBar />
 			<UserContainer>
 				<Title firstname={userData.getFirstName()} />
 				<AllChartsContainer>
@@ -120,7 +129,7 @@ function UserBoard() {
 					<Nutrients nutrientsData={userData.getNutrientData()} />
 				</AllChartsContainer>
 			</UserContainer>
-		</Main>
+		</Main></>
 	);
 }
 
