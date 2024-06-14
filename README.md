@@ -23,8 +23,9 @@ I am in charge of this new page design
 
 This project needs backend and frontend apps.
 
-## 14/06 Creation de la branche agirhav40
-## 14/06 Creation de la branche dev
+## 14/06 Creation de la branche main/agirhav40
+## 14/06 Creation de la branche main/dev
+## 14/06 Creation de la branche main/dev/front
 
 ## Backend
 clone this repo https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
